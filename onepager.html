@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpaceX × Cursor 買収劇 — 1枚まとめ資料 ClaudeCodeチャンネル</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#D9774F; --brand-deep:#C15640; --brand-soft:rgba(217,119,79,.12); --brand-line:rgba(217,119,79,.30);
+    --accent:#D9774F; --accent-deep:#B24E33; --accent-soft:rgba(217,119,79,.16);
+    --bg:#F1ECE3; --paper:#FBF8F2; --ink:#2A2620; --ink-mid:#6E6557; --ink-sub:#A39A8B; --line:#E4D9C7;
+    --head:'M PLUS Rounded 1c';
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--ink);font-family:'Noto Sans JP',-apple-system,'Hiragino Sans','Yu Gothic',sans-serif;line-height:1.7;}
+  .doc{max-width:880px;margin:0 auto;background:var(--paper);box-shadow:0 0 60px rgba(0,0,0,.10);overflow:hidden;}
+  /* hero */
+  .hero{position:relative;background:linear-gradient(160deg,var(--brand-soft) 0%,var(--bg) 70%);padding:50px 52px 44px;border-bottom:3px solid var(--brand-line);overflow:hidden;}
+  .hero .coin{position:absolute;width:160px;height:160px;border-radius:50%;background:var(--accent);opacity:.15;top:-52px;right:-36px;}
+  .hero .chan{display:inline-flex;align-items:center;gap:12px;margin-bottom:18px;}
+  .hero .chan img{width:50px;height:50px;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 10px rgba(0,0,0,.16);}
+  .hero .chan b{font-family:var(--head);font-weight:900;color:var(--brand-deep);font-size:17px;}
+  .hero .chan b small{display:block;font-size:11px;color:var(--ink-mid);font-weight:500;letter-spacing:.4px;}
+  .eyebrow{font-family:var(--head);font-weight:900;color:var(--brand-deep);letter-spacing:2px;font-size:13px;display:inline-flex;align-items:center;gap:9px;margin-bottom:12px;}
+  .eyebrow::before{content:'</>';background:var(--accent);color:var(--ink);border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;}
+  h1{font-family:var(--head);font-weight:900;font-size:38px;line-height:1.25;color:var(--ink);}
+  h1 .hl{color:var(--brand-deep);}
+  .hero p.sub{font-size:17px;color:var(--ink-mid);font-weight:700;margin-top:14px;max-width:680px;}
+  .meta{margin-top:20px;display:flex;gap:9px;flex-wrap:wrap;}
+  .meta span{background:var(--paper);border:1.5px solid var(--line);border-radius:999px;padding:6px 15px;font-size:13px;font-weight:700;color:var(--ink-mid);}
+  .meta span.k{background:var(--accent-soft);border-color:var(--accent);color:var(--ink);}
+  /* hook */
+  .hook{background:var(--brand-soft);border-left:4px solid var(--brand);padding:18px 52px;font-size:15px;color:var(--ink);font-weight:700;line-height:1.8;}
+  .hook .label{font-family:var(--head);font-size:12px;color:var(--brand-deep);font-weight:900;letter-spacing:1px;margin-bottom:6px;}
+  /* toc */
+  .tocbar{background:var(--brand-soft);border-bottom:1px solid var(--line);padding:14px 52px;display:flex;flex-wrap:wrap;gap:8px;}
+  .tocbar a{font-size:13px;font-weight:700;color:var(--brand-deep);text-decoration:none;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:5px 13px;}
+  .tocbar a:hover{border-color:var(--brand);}
+  /* section */
+  section{padding:36px 52px;border-bottom:1px solid var(--line);}
+  .sec-h{display:flex;align-items:center;gap:13px;margin-bottom:20px;}
+  .sec-h .no{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--accent);color:var(--ink);font-family:var(--head);font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 0 var(--accent-deep);}
+  .sec-h h2{font-family:var(--head);font-weight:900;font-size:23px;color:var(--ink);}
+  p.body{font-size:15px;color:var(--ink);margin-bottom:12px;line-height:1.75;}
+  .hl{color:var(--brand-deep);font-weight:700;} .hl-a{color:var(--accent-deep);font-weight:700;}
+  /* TL;DR */
+  .tldr{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px;}
+  .tldr .t{background:var(--bg);border:1.5px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:15px;}
+  .tldr .t .k{font-family:var(--head);font-weight:900;color:var(--ink);font-size:12px;margin-bottom:6px;}
+  .tldr .t p{font-size:13px;font-weight:700;color:var(--ink);line-height:1.5;}
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0;}
+  .stat{background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:18px;text-align:center;}
+  .stat .n{font-family:var(--head);font-size:36px;font-weight:900;color:var(--brand-deep);line-height:1;}
+  .stat .n small{font-size:16px;}
+  .stat .u{font-size:12px;color:var(--ink-sub);margin-top:3px;}
+  .stat .l{font-size:13px;font-weight:700;color:var(--ink);margin-top:6px;}
+  /* lists */
+  .bullets{list-style:none;} .bullets li{font-size:15px;font-weight:700;color:var(--ink);padding:9px 0 9px 28px;position:relative;border-bottom:1px solid var(--line);}
+  .bullets li::before{content:'';position:absolute;left:2px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:var(--accent);}
+  .checks{list-style:none;} .checks li{font-size:14px;color:var(--ink);padding:6px 0 6px 24px;position:relative;}
+  .checks li::before{content:'✔';position:absolute;left:0;color:var(--brand);font-weight:900;}
+  /* cards */
+  .cards{display:grid;gap:12px;}
+  .c3{grid-template-columns:repeat(3,1fr);}
+  .c2{grid-template-columns:1fr 1fr;}
+  .card{background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:18px;}
+  .card.accent{border-color:var(--brand);border-width:2px;}
+  .card .pin{width:36px;height:36px;border-radius:50%;background:var(--accent);color:var(--ink);font-family:var(--head);font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;box-shadow:0 2px 0 var(--accent-deep);}
+  .card h3{font-family:var(--head);font-size:16px;font-weight:900;color:var(--ink);margin-bottom:6px;}
+  .card p{font-size:13px;color:var(--ink-mid);line-height:1.6;}
+  .card .mark{font-size:11px;font-weight:700;color:var(--brand-deep);margin-top:6px;}
+  /* table */
+  table.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;background:var(--paper);border:1.5px solid var(--line);border-radius:12px;overflow:hidden;margin:14px 0;}
+  table.cmp th,table.cmp td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);}
+  table.cmp thead th{background:var(--ink);color:#fff;font-family:var(--head);font-weight:700;font-size:12px;}
+  table.cmp thead th:first-child{background:var(--brand-deep);}
+  table.cmp tbody tr:last-child td{border-bottom:none;}
+  table.cmp td:first-child{font-weight:700;}
+  table.cmp .yes{color:var(--brand-deep);font-weight:900;}
+  table.cmp .no{color:var(--ink-sub);}
+  /* flow */
+  .flow{display:flex;align-items:center;gap:8px;margin:14px 0;}
+  .flow .step{flex:1;background:var(--bg);border:1.5px solid var(--line);border-top:3px solid var(--brand);border-radius:10px;padding:12px;text-align:center;}
+  .flow .step .t{font-family:var(--head);font-weight:900;font-size:13px;color:var(--ink);}
+  .flow .step .d{font-size:11px;color:var(--ink-mid);margin-top:3px;}
+  .flow .ar{color:var(--accent);font-weight:900;font-size:20px;flex-shrink:0;}
+  /* timeline */
+  .timeline .row{display:flex;gap:14px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);}
+  .timeline .tbadge{flex-shrink:0;background:var(--brand);color:#fff;font-family:var(--head);font-weight:900;border-radius:7px;padding:4px 10px;font-size:12px;min-width:70px;text-align:center;}
+  .timeline .row b{font-family:var(--head);font-size:14px;color:var(--ink);}
+  .timeline .row p{font-size:12px;color:var(--ink-mid);margin-top:2px;}
+  /* ba */
+  .ba{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin:14px 0;}
+  .ba .panel{background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:16px;}
+  .ba .panel.after{border-color:var(--brand);border-width:2px;}
+  .ba .panel .tag{font-family:var(--head);font-weight:900;font-size:12px;border-radius:999px;padding:3px 10px;display:inline-block;margin-bottom:8px;}
+  .ba .panel.before .tag{background:var(--line);color:var(--ink-mid);}
+  .ba .panel.after .tag{background:var(--brand);color:#fff;}
+  .ba .panel ul{list-style:none;}
+  .ba .panel li{font-size:13px;padding:4px 0 4px 18px;position:relative;color:var(--ink);}
+  .ba .panel.before li::before{content:'×';position:absolute;left:0;color:var(--ink-sub);font-weight:900;}
+  .ba .panel.after li::before{content:'○';position:absolute;left:0;color:var(--brand);font-weight:900;}
+  .ba .mid{color:var(--accent);font-size:26px;font-weight:900;text-align:center;}
+  /* faq */
+  .faq .qa{background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:13px 16px;margin-bottom:8px;}
+  .faq .qa .q{font-family:var(--head);font-weight:900;font-size:14px;color:var(--brand-deep);}
+  .faq .qa .q::before{content:'Q. ';color:var(--accent-deep);}
+  .faq .qa .a{font-size:13px;color:var(--ink-mid);margin-top:3px;}
+  .faq .qa .a::before{content:'A. ';color:var(--ink);font-weight:700;}
+  /* footer */
+  .footer{background:var(--brand-deep);color:#fff;padding:36px 52px;}
+  .footer h3{font-family:var(--head);font-weight:900;font-size:20px;margin-bottom:14px;}
+  .footer a{color:rgba(255,255,255,.8);font-size:13px;display:block;margin-bottom:5px;text-decoration:none;}
+  .footer .note{font-size:12px;color:rgba(255,255,255,.55);margin-top:16px;}
+  .btn{display:inline-flex;align-items:center;background:var(--accent);color:var(--ink);border-radius:999px;padding:10px 22px;font-family:var(--head);font-size:15px;font-weight:900;text-decoration:none;margin-top:12px;}
+  /* 2col layout */
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;}
+  /* divider */
+  .sep{width:40px;height:3px;background:linear-gradient(90deg,var(--brand),var(--accent));border-radius:3px;margin:12px 0 18px;}
+</style>
+</head>
+<body>
+<div class="doc">
+
+<!-- Hero -->
+<div class="hero"><div class="coin"></div>
+  <div class="chan">
+    <img src="assets/claudecode-dog.jpg" alt="">
+    <b>ClaudeCodeチャンネル<small>Claude Code を学ぶ</small></b>
+  </div>
+  <p class="eyebrow">2026年最大のM&amp;A</p>
+  <h1><span class="hl">SpaceX × Cursor</span> 買収劇<br>徹底解説</h1>
+  <p class="sub">9兆円が動いた。AIコーディングツールの覇権争いを読み解く完全ガイド</p>
+  <div class="meta">
+    <span class="k">2026-06-17</span>
+    <span>ClaudeCodeチャンネル</span>
+    <span>✅公式確認済み ／ 🔶一次情報あり ／ ⚠️未確認</span>
+  </div>
+</div>
+
+<!-- 冒頭の提案 -->
+<div class="hook">
+  <div class="label">🎬 冒頭の提案（オープニングトーク）</div>
+  Cursorって名前は聞いたことがある、という方も多いと思います。でも今回SpaceXが9兆円で買収するという話が出て、正直「えっ？」ってなりましたよね。
+  これ、Cursorユーザーだけの話じゃなくて、Claude Codeを使っているみなさんにも直接関係する話なんです。AIコーディングツールの勢力図が根本から変わるかもしれない。
+  〇個の一次情報源をリサーチして、この動きを〇つの論点に整理しました ← 実績を入れる（情報ソース数／論点数）。
+  今回はSpaceX×Cursor買収劇を通じて、AIコーディングツールの今後を解説します。
+</div>
+
+<!-- TOC -->
+<div class="tocbar">
+  <a href="#tldr">TL;DR</a>
+  <a href="#what">何が起きた？</a>
+  <a href="#cursor">Cursorとは</a>
+  <a href="#why">3つの理由</a>
+  <a href="#valuation">600億ドル</a>
+  <a href="#market">市場変化</a>
+  <a href="#impact">開発者への影響</a>
+  <a href="#truell">Truell</a>
+  <a href="#outlook">今後</a>
+</div>
+
+<!-- TL;DR -->
+<section id="tldr">
+  <div class="sec-h"><div class="no">▶</div><h2>TL;DR（3行まとめ）</h2></div>
+  <div class="tldr">
+    <div class="t"><div class="k">POINT 1</div><p>SpaceXが最大600億ドルでCursorを買収する権利を取得。最低100億ドルは確定済み ✅</p></div>
+    <div class="t"><div class="k">POINT 2</div><p>Cursorは創業4年でARR 20億ドル超・有料100万人超。SaaS史上最速クラス ✅</p></div>
+    <div class="t"><div class="k">POINT 3</div><p>本質は「開発者の入口」を巡るAI覇権争いの延長線上にある</p></div>
+  </div>
+</section>
+
+<!-- 何が起きた？ -->
+<section id="what">
+  <div class="sec-h"><div class="no">1</div><h2>何が起きた？ 取引の概要</h2></div>
+  <div class="sep"></div>
+  <p class="body">2026年4月22日、SpaceXがCursor（Anysphere社）の<span class="hl">買収権を取得</span>したと発表 ✅。「売れる」か「キャッシュが入る」かどちらに転んでも勝ちが確定した構造です。</p>
+  <div class="cards c2" style="margin:14px 0;">
+    <div class="card accent">
+      <div style="font-family:var(--head);font-weight:900;font-size:14px;color:var(--brand-deep);margin-bottom:8px;">行使した場合</div>
+      <div style="font-family:var(--head);font-size:32px;font-weight:900;color:var(--brand-deep);">600億ドル</div>
+      <div style="font-size:13px;color:var(--ink-mid);margin-top:4px;">（約9兆円）株式交換 ✅</div>
+    </div>
+    <div class="card">
+      <div style="font-family:var(--head);font-weight:900;font-size:14px;color:var(--ink-mid);margin-bottom:8px;">行使しなかった場合</div>
+      <div style="font-family:var(--head);font-size:32px;font-weight:900;color:var(--ink);">100億ドル</div>
+      <div style="font-size:13px;color:var(--ink-mid);margin-top:4px;">（約1.5兆円）共同開発対価 ✅</div>
+    </div>
+  </div>
+  <ul class="bullets">
+    <li>完了予定: 2026年第3四半期（規制当局の承認を条件）✅</li>
+    <li>Microsoft も買収を本気で検討していたと CNBC が報道 🔶</li>
+    <li>SpaceXはxAIと合併済み（評価額1.25兆ドル、IPO準備中）🔶</li>
+  </ul>
+</section>
+
+<!-- Cursorとは？ -->
+<section id="cursor">
+  <div class="sec-h"><div class="no">2</div><h2>Cursorとは？ 急成長の実態</h2></div>
+  <div class="sep"></div>
+  <p class="body">VS Codeをフォークして作られた<span class="hl">「AIネイティブな開発環境」</span>。自然言語でコードの生成・修正・バグ修正が行え、大規模コードベースの理解にも強い ✅。開発者から「GitHub Copilotの次世代版」と評価される ✅。</p>
+  <div class="stats">
+    <div class="stat"><div class="n">20<small>億ドル</small></div><div class="u">ARR（2026年2月）✅</div><div class="l">1年前の20倍</div></div>
+    <div class="stat"><div class="n">100<small>万+</small></div><div class="u">有料ユーザー ✅</div><div class="l">急拡大中</div></div>
+    <div class="stat"><div class="n">67<small>%</small></div><div class="u">Fortune 500採用率 ✅</div><div class="l">3社に2社</div></div>
+  </div>
+  <table class="cmp">
+    <thead><tr><th>サービス</th><th>ARR 1億ドル到達</th></tr></thead>
+    <tbody>
+      <tr><td>Dropbox</td><td>4年</td></tr>
+      <tr><td>Slack</td><td>2年半</td></tr>
+      <tr><td style="color:var(--brand-deep);">Cursor</td><td class="yes">約1年8ヶ月 ✅</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SpaceXが買う3つの理由 -->
+<section id="why">
+  <div class="sec-h"><div class="no">3</div><h2>SpaceXが買う3つの理由</h2></div>
+  <div class="sep"></div>
+  <div class="cards c3">
+    <div class="card">
+      <div class="pin">1</div>
+      <h3>xAIの弱点補強</h3>
+      <p>GrokはチャットAIとして強いが開発支援は弱い。AIエージェント技術・UI/UX・実利用コードデータを一気に獲得 🔶</p>
+    </div>
+    <div class="card accent">
+      <div class="pin">2</div>
+      <h3>開発者の入口獲得</h3>
+      <p>100万人の開発者接点を手に入れる。Grok→Cursor→開発者→企業契約の循環を狙う 🔶</p>
+    </div>
+    <div class="card">
+      <div class="pin">3</div>
+      <h3>Colossus統合</h3>
+      <p>xAIの巨大計算基盤とCursorを統合。AnthropicへのAPI依存から脱却し自社モデルを育てる 🔶</p>
+    </div>
+  </div>
+  <p class="body" style="margin-top:14px;">AI覇権争いにおける「入口」の比較:</p>
+  <table class="cmp">
+    <thead><tr><th>プレイヤー</th><th>開発者向け入口</th></tr></thead>
+    <tbody>
+      <tr><td>OpenAI</td><td>ChatGPT（汎用ユーザー）</td></tr>
+      <tr><td>Anthropic</td><td>Claude Code</td></tr>
+      <tr><td>Microsoft</td><td>GitHub Copilot</td></tr>
+      <tr><td style="color:var(--brand-deep);">SpaceX/xAI</td><td class="yes">Cursor（今回取得）→ 100万人の開発者 🔶</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 600億ドル -->
+<section id="valuation">
+  <div class="sec-h"><div class="no">4</div><h2>600億ドルは高い？安い？</h2></div>
+  <div class="sep"></div>
+  <table class="cmp">
+    <thead><tr><th>買収</th><th>金額</th><th>創業年数（目安）</th></tr></thead>
+    <tbody>
+      <tr><td>Instagram → Meta</td><td>10億ドル</td><td>約2年</td></tr>
+      <tr><td>GitHub → Microsoft</td><td>75億ドル</td><td>約8年</td></tr>
+      <tr><td>LinkedIn → Microsoft</td><td>262億ドル</td><td>約13年</td></tr>
+      <tr><td style="color:var(--brand-deep);">Cursor → SpaceX</td><td class="yes">600億ドル</td><td>約4年</td></tr>
+    </tbody>
+  </table>
+  <div class="row2" style="margin-top:14px;">
+    <div class="card accent">
+      <h3>強気派（ブル）</h3>
+      <ul class="checks">
+        <li>Cursorは「開発者の入口」</li>
+        <li>Grok→Cursor→企業の循環が成立すれば強力</li>
+        <li>未来のプラットフォームなら600億ドルは安い</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>弱気派（ベア）</h3>
+      <ul style="list-style:none;">
+        <li style="font-size:13px;padding:5px 0 5px 18px;position:relative;color:var(--ink-mid);"><span style="position:absolute;left:0;color:var(--ink-sub);">×</span>市場変化が速く乗り換えコストが低い</li>
+        <li style="font-size:13px;padding:5px 0 5px 18px;position:relative;color:var(--ink-mid);"><span style="position:absolute;left:0;color:var(--ink-sub);">×</span>5年後も勝ち続ける保証はない</li>
+        <li style="font-size:13px;padding:5px 0 5px 18px;position:relative;color:var(--ink-mid);"><span style="position:absolute;left:0;color:var(--ink-sub);">×</span>かなり楽観的な価格設定 🔶</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px;border-left:4px solid var(--brand);">
+    <p style="font-size:14px;color:var(--ink);">Cursorの構造問題: 売上の<span class="hl">ほぼ100%がAnthropicへのAPI代として消えており</span>、構造的な赤字を抱えている 🔶。SpaceX傘下でColossusを使えるようになれば、このAPI依存から脱却できる。</p>
+  </div>
+</section>
+
+<!-- 市場の構造変化 -->
+<section id="market">
+  <div class="sec-h"><div class="no">5</div><h2>AIコーディング市場の構造変化</h2></div>
+  <div class="sep"></div>
+  <div class="ba">
+    <div class="panel before">
+      <span class="tag">旧パラダイム（ツール型）</span>
+      <ul>
+        <li>人間が主導し、AIに質問しながら書く</li>
+        <li>従来のCursorはここに位置</li>
+        <li>使いやすいが時代から外れつつある</li>
+      </ul>
+    </div>
+    <div class="mid">→</div>
+    <div class="panel after">
+      <span class="tag">新パラダイム（AIエージェント型）</span>
+      <ul>
+        <li>人間は指示・承認・修正のみ</li>
+        <li>複数AIが自律的にコードを作成</li>
+        <li>Claude Code / Codex がここを狙う</li>
+      </ul>
+    </div>
+  </div>
+  <p class="body" style="margin-top:14px;">市場の3タイプ:</p>
+  <table class="cmp">
+    <thead><tr><th>タイプ</th><th>代表例</th><th>特徴</th></tr></thead>
+    <tbody>
+      <tr><td>人間主役ツール型</td><td>Cursor（従来）</td><td class="no">時代から外れつつある</td></tr>
+      <tr><td>責任主体あるエージェント型</td><td>Claude Code, Codex</td><td class="yes">大企業が安心して使えるタイプ</td></tr>
+      <tr><td>オープンソース型</td><td>OpenClaw等</td><td>自由度高いが責任主体なし</td></tr>
+    </tbody>
+  </table>
+  <p class="body">AIコーディング市場は2026年に<span class="hl">128億ドル</span>規模へ 🔶。Anthropicの売上の約80%が企業向けで、年間100万ドル以上を支払う大口顧客が1000社以上 🔶。</p>
+</section>
+
+<!-- 開発者への影響 -->
+<section id="impact">
+  <div class="sec-h"><div class="no">6</div><h2>開発者への影響 &amp; Claude Codeとの位置づけ</h2></div>
+  <div class="sep"></div>
+  <div class="row2">
+    <div>
+      <div style="font-family:var(--head);font-weight:900;font-size:14px;color:var(--brand-deep);margin-bottom:10px;">○ ポジティブ</div>
+      <ul class="checks">
+        <li>Colossusでモデル性能向上</li>
+        <li>AIエージェント機能の強化</li>
+        <li>Grokとの直接統合</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-family:var(--head);font-weight:900;font-size:14px;color:var(--ink-mid);margin-bottom:10px;">△ ネガティブ</div>
+      <ul style="list-style:none;">
+        <li style="font-size:14px;padding:5px 0 5px 20px;position:relative;color:var(--ink);font-weight:600;"><span style="position:absolute;left:0;color:var(--ink-sub);">×</span>xAIへの囲い込みリスク 🔶</li>
+        <li style="font-size:14px;padding:5px 0 5px 20px;position:relative;color:var(--ink);font-weight:600;"><span style="position:absolute;left:0;color:var(--ink-sub);">×</span>Claude・GPT連携縮小の可能性</li>
+        <li style="font-size:14px;padding:5px 0 5px 20px;position:relative;color:var(--ink);font-weight:600;"><span style="position:absolute;left:0;color:var(--ink-sub);">×</span>価格変更・名称変更の可能性 🔶</li>
+      </ul>
+    </div>
+  </div>
+  <p class="body" style="margin-top:14px;">最大の注目点は<span class="hl">「モデル選択の自由度がどこまで保たれるか」</span> 🔶</p>
+  <table class="cmp" style="margin-top:14px;">
+    <thead><tr><th>ツール</th><th>運営</th><th>強み</th><th>注意点</th></tr></thead>
+    <tbody>
+      <tr><td>Cursor（買収後）</td><td>SpaceX/xAI</td><td>100万人・ブランド</td><td class="no">中立性喪失リスク</td></tr>
+      <tr><td style="color:var(--brand-deep);">Claude Code</td><td>Anthropic</td><td class="yes">エージェント型・企業向け</td><td>成長途上</td></tr>
+      <tr><td>GitHub Copilot</td><td>Microsoft</td><td>エンタープライズ実績</td><td>対応速度</td></tr>
+      <tr><td>OpenAI Codex</td><td>OpenAI</td><td>ChatGPT連携</td><td>専業でない</td></tr>
+    </tbody>
+  </table>
+  <div class="card accent" style="margin-top:14px;">
+    <p style="font-size:14px;color:var(--ink);">CursorがGrok専用に近づけば、<span class="hl">Claude Codeが「モデルを選べる開発者の受け皿」</span>になれる可能性 🔶</p>
+  </div>
+</section>
+
+<!-- Michael Truell -->
+<section id="truell">
+  <div class="sec-h"><div class="no">7</div><h2>Michael Truell — 25歳の起業家</h2></div>
+  <div class="sep"></div>
+  <div class="timeline">
+    <div class="row"><span class="tbadge">11歳</span><div><b>コーディング開始</b><p>モバイルゲーム作成のため ✅</p></div></div>
+    <div class="row"><span class="tbadge">14歳</span><div><b>「Halite」共同開発</b><p>世界100ヶ国・5,500人超参加。Two Sigmaが運営引き継ぎ ✅</p></div></div>
+    <div class="row"><span class="tbadge">17歳</span><div><b>Cutler-Bell Prize受賞（IOIメダルも）</b><p>米国高校生プログラマー最高賞の一つ・賞金1万ドル ✅</p></div></div>
+    <div class="row"><span class="tbadge">22歳</span><div><b>MIT中退・Anysphere共同創業</b><p>ChatGPT登場前からAIコーディングに賭けた ✅</p></div></div>
+    <div class="row"><span class="tbadge">25歳</span><div><b>SpaceXと最大9兆円の契約</b><p>個人資産13億ドル（Forbes推定）✅</p></div></div>
+  </div>
+  <div class="card" style="margin-top:14px;border-left:4px solid var(--brand);">
+    <p style="font-size:14px;font-style:italic;color:var(--ink);">「ものすごい確信と興奮があった。ある時点で、僕らはただ"やる"と決めたんだ」— Truell ✅</p>
+    <p style="font-size:13px;color:var(--ink-mid);margin-top:6px;">最初は「機械エンジニア向けCopilot」を作ろうとしていたが頓挫。約半年後、「競争が激しすぎる」と避けていたAIコーディング領域に飛び込んだ ✅</p>
+  </div>
+  <div style="margin-top:14px;">
+    <p class="body"><strong>Truellが語る「自動化はまだ遠い」</strong></p>
+    <div class="cards c3" style="margin-top:10px;">
+      <div class="card"><h3 style="font-size:13px;">現状</h3><p>見出しほど自動化は進んでいない。ソフト開発は今もかなり非効率 ✅</p></div>
+      <div class="card"><h3 style="font-size:13px;">中間地帯</h3><p>大規模組織ほど難度が高い。経営層は到達距離を見誤りやすい ✅</p></div>
+      <div class="card" style="background:var(--brand-soft);border-color:var(--brand-line);"><h3 style="font-size:13px;">次の転換</h3><p>市場は今「iPod段階」。これから「iPhone段階」が何度も来る ✅</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 今後の見通し -->
+<section id="outlook">
+  <div class="sec-h"><div class="no">8</div><h2>今後の見通し</h2></div>
+  <div class="sep"></div>
+  <div class="row2">
+    <div>
+      <p class="body"><strong>次のモデル（Composer 3）🔶⚠️</strong></p>
+      <ul class="checks">
+        <li>ゼロから独自モデルを訓練中</li>
+        <li>Grokを基盤モデルとして活用の可能性</li>
+        <li>「コーディングを超えた知性」を目指す</li>
+        <li>数週間以内にリリース⚠️（未確認）</li>
+      </ul>
+    </div>
+    <div>
+      <p class="body"><strong>ロードマップ</strong></p>
+      <div class="timeline">
+        <div class="row"><span class="tbadge" style="font-size:11px;">2026 Q3</span><div><b>完全買収完了予定</b><p>規制当局の承認次第 ✅</p></div></div>
+        <div class="row"><span class="tbadge" style="font-size:11px;">2026年末</span><div><b>買収権の行使期限</b><p>600億ドル行使か100億ドル提携か 🔶</p></div></div>
+        <div class="row"><span class="tbadge" style="font-size:11px;">その後</span><div><b>三つ巴の戦い本番</b><p>xAI/Cursor vs Anthropic vs OpenAI</p></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="card accent" style="margin-top:18px;">
+    <p style="font-family:var(--head);font-weight:900;font-size:15px;color:var(--brand-deep);">まとめ</p>
+    <p style="font-size:14px;margin-top:6px;color:var(--ink);">「SpaceXがCursorを買った」のではなく、<span class="hl">「MuskがOpenAI・Anthropicに対抗するための時間を買った」</span>。AIコーディングツールの覇権争いはここから本番です。</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="sec-h"><div class="no">Q</div><h2>FAQ</h2></div>
+  <div class="faq">
+    <div class="qa"><div class="q">CursorはSpaceX傘下になってもClaudeが使えますか？</div><div class="a">現時点では未定。Grok優遇になる可能性があり、モデル選択の自由度が制限されるリスクがある 🔶</div></div>
+    <div class="qa"><div class="q">Claude Codeへの影響は？</div><div class="a">CursorがGrok専用に近づけば、Claudeを使い続けたい開発者の受け皿になれる可能性。長期的には追い風になり得る 🔶</div></div>
+    <div class="qa"><div class="q">買収は確定したの？</div><div class="a">「買収する権利の取得」であり、完全買収は2026年末の行使期限までに判断される。規制当局の承認も必要 ✅</div></div>
+    <div class="qa"><div class="q">なぜAnthropicは売らなかったの？</div><div class="a">买収ではなく「権利取得＋共同開発」の形を選んだ背景には、独立性を保ちたいAnysphere側の意志があったとみられる 🔶</div></div>
+  </div>
+</section>
+
+<!-- Footer -->
+<div class="footer">
+  <h3>ClaudeCodeチャンネル</h3>
+  <a href="https://www.youtube.com/@claudecodechannel" target="_blank">チャンネル登録はこちら（チャンネルURLに差し替え）</a>
+  <p style="font-size:13px;color:rgba(255,255,255,.75);margin-top:10px;">出典:</p>
+  <a href="https://www.spacex.com" target="_blank">SpaceX公式 — 取引概要 ✅</a>
+  <a href="https://fortune.com" target="_blank">Fortune — Michael Truell 経歴 ✅</a>
+  <p class="note">本資料は非公式まとめ。Cursor / SpaceX / Anthropic とは無関係。価格・ARR 等は変わる可能性があるため最終確認は各社公式サイトで。作成日: 2026-06-17。確度マーク: ✅公式確認済み ／ 🔶一次情報あり ／ ⚠️未確認・推測</p>
+</div>
+
+</div>
+</body>
+</html>
